@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nigeria Job Listings Sample Schema",
+  "description": "Minimal schema for job listing records used in research datasets.",
+  "type": "object",
+  "required": [
+    "job_id",
+    "source_name",
+    "source_url",
+    "job_title",
+    "organization_name",
+    "location",
+    "employment_type",
+    "posted_date",
+    "collected_at"
+  ],
+  "properties": {
+    "job_id": {
+      "type": "string",
+      "description": "Unique identifier for the listing within the dataset."
+    },
+    "source_name": {
+      "type": "string",
+      "description": "Origin of the listing (official portal, agency, or dataset name)."
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct URL to the listing or official announcement."
+    },
+    "job_title": {
+      "type": "string",
+      "description": "Role title as published by the source."
+    },
+    "organization_name": {
+      "type": "string",
+      "description": "Hiring organization or public agency."
+    },
+    "location": {
+      "type": "object",
+      "required": ["country"],
+      "properties": {
+        "country": {"type": "string"},
+        "state": {"type": "string"},
+        "city": {"type": "string"}
+      }
+    },
+    "employment_type": {
+      "type": "string",
+      "description": "Example values: full-time, part-time, contract, internship."
+    },
+    "sector": {
+      "type": "string",
+      "description": "Industry sector classification when available."
+    },
+    "salary_range": {
+      "type": "object",
+      "properties": {
+        "currency": {"type": "string"},
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "period": {"type": "string", "description": "monthly, yearly, hourly"}
+      }
+    },
+    "posted_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Publication date as provided by the source."
+    },
+    "application_deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "Deadline for applications if stated."
+    },
+    "collected_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was collected."
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "verified": {"type": "boolean"},
+        "verification_notes": {"type": "string"}
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional context or data quality notes."
+    }
+  }
+}

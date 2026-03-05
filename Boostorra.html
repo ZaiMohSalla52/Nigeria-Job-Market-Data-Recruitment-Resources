@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boostorra — Music-First Growth Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050710;
+      --bg-soft: #0c1224;
+      --card: rgba(12, 18, 36, 0.75);
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #f5f7ff;
+      --muted: #a4acc6;
+      --primary: #7a5cff;
+      --primary-soft: #b9a8ff;
+      --secondary: #1ed8ff;
+      --success: #22d3a7;
+      --warning: #ff8f57;
+      --radius: 18px;
+      --shadow: 0 20px 50px rgba(1, 7, 22, 0.45);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 5% 10%, rgba(122, 92, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 95% 10%, rgba(30, 216, 255, 0.2), transparent 25%),
+        linear-gradient(160deg, #04060f 0%, #070d1a 42%, #050710 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .8rem;
+      border: 1px solid rgba(122, 92, 255, 0.5);
+      background: rgba(122, 92, 255, 0.12);
+      border-radius: 999px;
+      color: #d9ceff;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      backdrop-filter: blur(8px);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(4, 7, 16, 0.62);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, var(--secondary), var(--primary));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #051020;
+      box-shadow: 0 10px 30px rgba(35, 199, 255, 0.25);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.4rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: .95rem;
+    }
+
+    .cta {
+      padding: .72rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(135deg, var(--primary), #5f38ff);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(80, 53, 210, 0.35);
+      transition: transform .25s ease;
+    }
+
+    .cta:hover { transform: translateY(-2px); }
+
+    .hero {
+      padding: 6.5rem 0 5rem;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin-top: 1.1rem;
+      font-size: clamp(2rem, 5.2vw, 3.7rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #fff 8%, var(--primary-soft) 46%, var(--secondary) 92%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 1.25rem 0 1.6rem;
+      color: var(--muted);
+      max-width: 60ch;
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+    }
+
+    .btn-secondary {
+      padding: .72rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .85rem;
+      margin-top: .9rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: .9rem;
+    }
+
+    .stat h3 {
+      font-size: 1.45rem;
+      margin-bottom: .2rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    section { padding: 1.6rem 0 4.4rem; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p { color: var(--muted); max-width: 70ch; }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      min-height: 190px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { margin: .55rem 0 .5rem; font-size: 1.1rem; }
+    .card p { color: var(--muted); font-size: .95rem; }
+
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      background: rgba(122, 92, 255, 0.2);
+      border: 1px solid rgba(185, 168, 255, 0.35);
+    }
+
+    .badge-wrap {
+      margin-top: .85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: .24rem .6rem;
+      font-size: .74rem;
+      border: 1px solid rgba(255,255,255,.12);
+      color: #ccd4f3;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .highlight {
+      border: 1px solid rgba(30, 216, 255, 0.28);
+      background: linear-gradient(135deg, rgba(30, 216, 255, 0.1), rgba(122, 92, 255, 0.12));
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.4rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 980px) {
+      nav ul { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .col-4, .col-6, .col-8 { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">B</div>
+        <span>Boostorra</span>
+      </div>
+      <nav>
+        <ul>
+          <li>Music Growth</li>
+          <li>Campaigns</li>
+          <li>All Services</li>
+          <li>Case Studies</li>
+        </ul>
+      </nav>
+      <a href="#" class="cta">Book Strategy Call</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="pill">🎵 Music-first brand positioning</span>
+        <h1>
+          Turn streams into <span class="gradient-text">real artist growth</span> with strategic promotion.
+        </h1>
+        <p>
+          Boostorra is designed for artists and labels that want more than vanity metrics. We build full-funnel music campaigns across Spotify, Apple Music, TikTok, and social media—so every release gets momentum before, during, and after launch.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="cta">Start Your Rollout Plan</a>
+          <a href="#music-services" class="btn-secondary">Explore Music Services</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <span class="pill">Artist Growth Dashboard</span>
+        <div class="stat-grid">
+          <div class="stat">
+            <h3>+312%</h3>
+            <span>Spotify monthly listeners</span>
+          </div>
+          <div class="stat">
+            <h3>4.8x</h3>
+            <span>Pre-save conversion lift</span>
+          </div>
+          <div class="stat">
+            <h3>9.2M</h3>
+            <span>TikTok campaign reach</span>
+          </div>
+          <div class="stat">
+            <h3>14 days</h3>
+            <span>Typical rollout sprint cycle</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="music-services">
+      <div class="section-head">
+        <div>
+          <span class="pill">Core focus</span>
+          <h2>Music promotion + artist growth systems</h2>
+        </div>
+        <p>
+          The homepage messaging is intentionally music-first while still connecting each campaign to revenue, audience retention, and long-term fan acquisition.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card col-4 highlight">
+          <div class="icon">🚀</div>
+          <h3>Release Rollout Planning</h3>
+          <p>Pre-release, release-day, and post-release orchestration with a timeline mapped to content drops, ads, and social proof events.</p>
+          <div class="badge-wrap">
+            <span class="badge">Calendar Strategy</span>
+            <span class="badge">Launch Sequencing</span>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="icon">🎧</div>
+          <h3>Spotify & Apple Music Support</h3>
+          <p>Platform-focused promotion plans to increase saves, playlists, and algorithmic discoverability for singles, EPs, and albums.</p>
+          <div class="badge-wrap">
+            <span class="badge">Pre-Saves</span>
+            <span class="badge">Playlist Push</span>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="icon">📱</div>
+          <h3>TikTok Music Campaigns</h3>
+          <p>Creative-led short-form campaigns with trend mapping, hook testing, and influencer amplification to scale sound usage.</p>
+          <div class="badge-wrap">
+            <span class="badge">UGC Seeding</span>
+            <span class="badge">Trend Positioning</span>
+          </div>
+        </article>
+
+        <article class="card col-6">
+          <div class="icon">🧭</div>
+          <h3>Artist Growth Strategy</h3>
+          <p>Brand voice, audience segmentation, and fan-journey optimization to turn one viral moment into consistent career growth.</p>
+          <div class="badge-wrap">
+            <span class="badge">Positioning</span>
+            <span class="badge">Audience Mapping</span>
+            <span class="badge">Retention Loops</span>
+          </div>
+        </article>
+
+        <article class="card col-6">
+          <div class="icon">🎯</div>
+          <h3>Music Promotion Performance</h3>
+          <p>Weekly analytics reporting focused on listener growth, conversion metrics, and campaign ROI—not just likes and impressions.</p>
+          <div class="badge-wrap">
+            <span class="badge">Data Dashboard</span>
+            <span class="badge">KPI Tracking</span>
+            <span class="badge">Optimization</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <span class="pill">Full capability stack</span>
+          <h2>All SMM Services</h2>
+        </div>
+        <p>
+          Beyond music marketing, Boostorra still provides complete social media and digital growth services for brands, businesses, and creators.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card col-8">
+          <div class="icon">🌐</div>
+          <h3>Cross-Platform Social Media Marketing</h3>
+          <p>Instagram growth, TikTok scaling, YouTube promotion, Facebook engagement, X/Twitter activity boosts, and LinkedIn visibility campaigns.</p>
+          <div class="badge-wrap">
+            <span class="badge">Instagram</span>
+            <span class="badge">TikTok</span>
+            <span class="badge">YouTube</span>
+            <span class="badge">Facebook</span>
+            <span class="badge">X / Twitter</span>
+            <span class="badge">LinkedIn</span>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="icon">🔎</div>
+          <h3>SEO & Content Distribution</h3>
+          <p>Search optimization, keyword strategy, blog syndication, and content architecture to improve discoverability beyond social platforms.</p>
+          <div class="badge-wrap">
+            <span class="badge">On-page SEO</span>
+            <span class="badge">Keyword Clusters</span>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="icon">🛒</div>
+          <h3>Paid Ads & Funnel Builds</h3>
+          <p>Meta, TikTok, and Google ad funnels built for conversions, lead generation, and audience retargeting.</p>
+          <div class="badge-wrap">
+            <span class="badge">Meta Ads</span>
+            <span class="badge">Google Ads</span>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="icon">🤝</div>
+          <h3>Influencer & Creator Collaborations</h3>
+          <p>Partnership sourcing, outreach, and campaign management for both artist campaigns and commercial brands.</p>
+          <div class="badge-wrap">
+            <span class="badge">Outreach</span>
+            <span class="badge">Creator Matching</span>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="icon">📈</div>
+          <h3>Analytics, Reporting, and CRO</h3>
+          <p>End-to-end performance tracking with actionable optimization loops across social, paid, and website traffic channels.</p>
+          <div class="badge-wrap">
+            <span class="badge">Attribution</span>
+            <span class="badge">CRO</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Concept mockup for client presentation — Boostorra positioned as a music-first growth platform with full-service SMM capability.
+    </div>
+  </footer>
+</body>
+</html>

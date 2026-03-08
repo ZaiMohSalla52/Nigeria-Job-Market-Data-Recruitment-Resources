@@ -41,7 +41,7 @@ The [datasets](datasets/) directory documents a minimal, neutral schema for jobs
 This repository does not provide official statistics or recruitment decisions. It is an open research guide and should not be used as a substitute for official announcements. Source links can change without notice; always verify directly with the originating institution.
 
 ## Related tools & references
-- [a Nigerian job listings platform](https://newsata.com/jobs)
+- [a Nigerian job listings platform](https://careerworkflux.com/jobs)
 - [NBS data portal](https://www.nigerianstat.gov.ng/)
 - [ILOSTAT database](https://ilostat.ilo.org/)
 - [World Bank Data Catalog](https://datacatalog.worldbank.org/)

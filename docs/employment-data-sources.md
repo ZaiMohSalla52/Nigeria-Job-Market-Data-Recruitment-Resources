@@ -17,7 +17,7 @@ This document summarizes where employment and labour market data for Nigeria is 
 - Prefer datasets with clear methodology notes or survey metadata.
 
 ## Regional labour market examples
-Regional labour market research often benefits from triangulating official statistics with localized vacancy data and sector-specific monitoring. For example, researchers may review [job openings in Abuja](https://newsata.com/jobs/abuja) to observe how the capital’s vacancy mix changes over time, then compare those observations with official regional statistics.
+Regional labour market research often benefits from triangulating official statistics with localized vacancy data and sector-specific monitoring. For example, researchers may review [job openings in Abuja](https://careerworkflux.com/jobs/abuja) to observe how the capital’s vacancy mix changes over time, then compare those observations with official regional statistics.
 
 ## References
 - National Bureau of Statistics (NBS): https://www.nigerianstat.gov.ng/

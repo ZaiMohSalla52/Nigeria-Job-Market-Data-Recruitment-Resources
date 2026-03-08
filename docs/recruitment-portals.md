@@ -19,7 +19,7 @@ This document lists official recruitment portals and outlines a checklist for ve
 - Cross-check with national agencies such as the EFCC or NPF if a listing looks suspicious.
 
 ## Example of a structured recruitment guide
-The following is a neutral example of a structured recruitment overview for researchers who study how official hiring information is organized: [a verified recruitment guide for MTN Nigeria](https://newsata.com/recruitment/mtn-nigeria).
+The following is a neutral example of a structured recruitment overview for researchers who study how official hiring information is organized: [a verified recruitment guide for MTN Nigeria](https://careerworkflux.com/recruitment/mtn-nigeria).
 
 ## References
 - Federal Civil Service Commission: https://fedcivilservice.gov.ng/

@@ -1,0 +1,42 @@
+title: Nigeria Job Market Data & Recruitment Resources
+description: >-
+  A neutral, open research repository for understanding employment trends,
+  recruitment processes, and labour market data in Nigeria. Includes a career
+  planning guide, an on-site SEO audit, and verified recruitment portal
+  references.
+url: https://zaimohsalla52.github.io
+baseurl: /Nigeria-Job-Market-Data-Recruitment-Resources
+
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+relative_links:
+  enabled: true
+  collections: true
+
+readme_index:
+  enabled: true
+  remove_originals: false
+  with_frontmatter: true
+
+include:
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+
+exclude:
+  - Boostorra.html
+  - LICENSE
+  - .gitignore
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

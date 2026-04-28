@@ -8,6 +8,7 @@ A neutral, open research repository for understanding employment trends, recruit
 - [Official recruitment channels in Nigeria](#official-recruitment-channels-in-nigeria)
 - [Recruitment scam prevention checklist](#recruitment-scam-prevention-checklist)
 - [Open datasets overview](#open-datasets-overview)
+- [Career planning guide](#career-planning-guide)
 - [Methodology & update policy](#methodology--update-policy)
 - [Limitations & disclaimer](#limitations--disclaimer)
 - [Related tools & references](#related-tools--references)
@@ -30,6 +31,9 @@ For a practical checklist of red flags, reporting channels, and verification ste
 
 ## Open datasets overview
 The [datasets](datasets/) directory documents a minimal, neutral schema for jobs data and explains the philosophy behind sample data structures. The intent is to encourage transparent data collection, clearly defined fields, and reproducible analysis.
+
+## Career planning guide
+For a longer-form, data-informed walkthrough of how to navigate the Nigerian labour market — sizing the market with primary sources, salary benchmarking when official data is sparse, and structured career-transition paths (including into tech) — see [docs/nigeria-career-planning-guide.md](docs/nigeria-career-planning-guide.md).
 
 ## Methodology & update policy
 - Prioritize primary sources (NBS, ILO, World Bank, and official government portals).
